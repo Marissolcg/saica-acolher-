@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SAICA Acolher - Projeto de voluntariado para ensinar crianças e adolescentes.">
+    <title>SAICA Acolher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="container header-content">
+            <h1>🏠 SAICA Acolher</h1>
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#disciplinas">Atividades</a>
+                <a href="#cadastro">Seja Voluntário</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- INÍCIO -->
+        <section id="inicio" class="intro container">
+            <h2>Compartilhe seu conhecimento e transforme vidas 💙</h2>
+            <p>
+                O SAICA Acolher é um projeto social que busca conectar
+                voluntários a crianças e adolescentes em situação de
+                vulnerabilidade, oferecendo oportunidades de aprendizagem,
+                convivência e desenvolvimento.
+            </p>
+            <p>
+                Você pode contribuir compartilhando seu tempo e seus
+                conhecimentos em diferentes áreas.
+            </p>
+        </section>
+
+        <!-- ATIVIDADES -->
+        <section id="disciplinas" class="container">
+            <div class="section-title">
+                <h2>Conheça nossas atividades</h2>
+                <p>Escolha uma área e descubra como você pode ajudar.</p>
+            </div>
+
+            <!-- Os cards serão injetados aqui pelo JS -->
+            <div class="cards-grid" id="cardsGrid"></div>
+        </section>
+
+        <!-- MENSAGEM -->
+        <div id="mensagemUsuario" class="mensagem container"></div>
+
+        <!-- CADASTRO -->
+        <section id="cadastro" class="container cadastro-section">
+            <div class="section-title">
+                <h2>Seja um voluntário 💙</h2>
+                <p>
+                    Preencha seus dados para demonstrar interesse
+                    em participar do projeto.
+                </p>
+            </div>
+
+            <form id="formCadastro">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required>
+
+                <label for="disciplina">Área em que deseja atuar</label>
+                <select id="disciplina" name="disciplina" required>
+                    <option value="">Selecione uma área</option>
+                    <option value="Ballet">Ballet</option>
+                    <option value="Música">Música</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Matemática">Matemática</option>
+                </select>
+
+                <button type="submit" class="btn">Quero ser voluntário</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalConfirmacao">
+        <div class="modal">
+            <h2>Cadastro realizado! 💙</h2>
+            <p id="textoModal">Obrigado por querer fazer parte do SAICA Acolher.</p>
+            <button type="button" class="btn" id="btnFecharModal">Fechar</button>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 SAICA Acolher — Projeto de voluntariado social.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
