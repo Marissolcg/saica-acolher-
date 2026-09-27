@@ -1,353 +1,205 @@
-/* ==============================
-CONFIGURAÇÕES GERAIS
-============================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset Básico e Cores Base de Alto Contraste */
+:root {
+  --primary-color: #004d40;
+  --primary-hover: #00251a;
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --bg-light: #f4f6f8;
+  --focus-ring: #d32f2f;
+  --font-scale: 1rem;
 }
 
-html {
-    scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #eef4f8;
-    color: #333;
-    line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--font-scale);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-/* ==============================
-CABEÇALHO
-============================== */
+/* Indicador de Foco Visível para Navegação por Teclado (WCAG 2.1) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 3px solid var(--focus-ring) !important;
+  outline-offset: 3px !important;
+}
 
-header {
-    background-color: #426b8f;
-    color: white;
-    padding: 20px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* Link de Salto Acessível (Skip Link) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 10px;
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 16px;
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Barra de Acessibilidade */
+.accessibility-bar {
+  background-color: #212121;
+  color: #ffffff;
+  padding: 8px 0;
+}
+
+.accessibility-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.accessibility-controls button {
+  background: #424242;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.accessibility-controls button:hover {
+  background: #616161;
+}
+
+/* Header e Navegação */
+.header-main {
+  background-color: var(--primary-color);
+  color: #ffffff;
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header h1 {
-    font-size: 28px;
+.logo h1 {
+  font-size: 1.8rem;
 }
 
-/* ==============================
-MENU
-============================== */
-
-nav {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 20px;
-    transition: 0.3s;
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav a:hover {
-    background-color: #f3a6b6;
-    transform: translateY(-3px);
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
-/* ==============================
-INTRODUÇÃO
-============================== */
-
-.intro {
-    background-color: white;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 40px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+#btn-mobile-menu {
+  display: none;
 }
 
-.intro h2 {
-    color: #426b8f;
-    margin-bottom: 15px;
-    font-size: 28px;
+/* Estilo do Modo de Alto Contraste (Modo A11y) */
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
 }
 
-.intro p {
-    margin-bottom: 12px;
+body.high-contrast .header-main,
+body.high-contrast .accessibility-bar,
+body.high-contrast .footer-main,
+body.high-contrast .card {
+  background-color: #000000 !important;
+  border: 2px solid #ffff00 !important;
 }
 
-/* ==============================
-TÍTULOS DAS SEÇÕES
-============================== */
-
-.section-title {
-    text-align: center;
-    margin: 40px 0 25px;
+body.high-contrast a,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast label {
+  color: #ffff00 !important;
 }
 
-.section-title h2 {
-    color: #294a65;
-    font-size: 28px;
+body.high-contrast button {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+  font-weight: bold;
 }
 
-.section-title p {
-    margin-top: 8px;
+/* Formulários */
+.accessible-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
 }
 
-/* ==============================
-CARDS GRID
-============================== */
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 50px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-/* ==============================
-8 CORES DOS CARDS
-============================== */
-
-.card-disciplina:nth-child(8n + 1) { background-color: #ffd6e0; }
-.card-disciplina:nth-child(8n + 2) { background-color: #d8eaff; }
-.card-disciplina:nth-child(8n + 3) { background-color: #d9f5d0; }
-.card-disciplina:nth-child(8n + 4) { background-color: #fff0c7; }
-.card-disciplina:nth-child(8n + 5) { background-color: #eadcff; }
-.card-disciplina:nth-child(8n + 6) { background-color: #d5f3f5; }
-.card-disciplina:nth-child(8n + 7) { background-color: #ffe0c2; }
-.card-disciplina:nth-child(8n + 8) { background-color: #e2e2e2; }
-
-/* ==============================
-CARD
-============================== */
-
-.card-disciplina {
-    padding: 18px;
-    border-radius: 22px;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.form-group label {
+  font-weight: bold;
 }
 
-.card-disciplina:hover {
-    transform: translateY(-10px) rotate(1deg);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.23);
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-/* ==============================
-IMAGENS
-============================== */
-
-.card-img-wrapper {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    border-radius: 16px;
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+.btn-primary:hover {
+  background-color: var(--primary-hover);
 }
 
-.card-disciplina:hover .card-img {
-    transform: scale(1.08);
+.feedback-message {
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-/* ==============================
-BOTÕES
-============================== */
-
-.btn {
-    display: inline-block;
-    border: none;
-    background-color: #426b8f;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #d85d7a;
-    transform: scale(1.05);
-}
-
-/* ==============================
-FORMULÁRIO
-============================== */
-
-.cadastro-section {
-    margin-bottom: 60px;
-}
-
-form {
-    background-color: white;
-    padding: 35px;
-    border-radius: 25px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    font-weight: bold;
-    color: #294a65;
-    margin-top: 10px;
-}
-
-form input,
-form select {
-    width: 100%;
-    padding: 13px;
-    margin-top: 6px;
-    margin-bottom: 10px;
-    border: 2px solid #d6dfe6;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-form input:focus,
-form select:focus {
-    outline: none;
-    border-color: #426b8f;
-    box-shadow: 0 0 6px rgba(66, 107, 143, 0.25);
-}
-
-form .btn {
-    margin-top: 15px;
-    align-self: center;
-}
-
-/* ==============================
-MENSAGEM DE INTERESSE
-============================== */
-
-.mensagem {
-    display: none;
-    background-color: #d9f5d0;
-    color: #285c2b;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-
-.mensagem.ativa {
-    display: block;
-}
-
-/* ==============================
-MODAL
-============================== */
-
-.modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.55);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal {
-    background-color: white;
-    padding: 35px;
-    border-radius: 25px;
-    width: 90%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.30);
-    animation: aparecer 0.3s ease;
-}
-
-.modal h2 {
-    color: #426b8f;
-    margin-bottom: 15px;
-}
-
-.modal p {
-    margin-bottom: 20px;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* ==============================
-RODAPÉ
-============================== */
-
-footer {
-    background-color: #294a65;
-    color: white;
-    text-align: center;
-    padding: 25px;
-}
-
-/* ==============================
-RESPONSIVIDADE
-============================== */
-
-@media (max-width: 1000px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .header-content {
-        flex-direction: column;
-    }
-
-    .intro, form {
-        padding: 25px;
-    }
-
-    nav {
-        justify-content: center;
-    }
+.footer-main {
+  background-color: #212121;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 40px;
 }
